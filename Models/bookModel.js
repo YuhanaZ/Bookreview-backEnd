@@ -7,7 +7,7 @@ const bookSchema = mongoose.Schema(
       unique: true,
       required: true,
     },
-      Author: {
+      author: {
       type: String,
       required: true,
     },
@@ -21,12 +21,12 @@ const bookSchema = mongoose.Schema(
     },
     User: {
       type: mongoose.Types.ObjectId,
-      ref: "Users",
+      ref: "User",
     },
   },
   { timestamps: true }
 );
-
+// if( !mongoose.Types.ObjectId.isValid(id) ) return false;
 const bookModel = mongoose.model("Book", bookSchema);
 
 module.exports = bookModel;
