@@ -68,7 +68,7 @@ exports.login = async (req, res) => {
 exports.protect = (req,res, next)=>{
   try{
     const token = req.headers.authorization;
- 
+  //  console.log(token);
      if(!token){
       return res.status(401).json({ message: "please log in"})
      }
@@ -79,7 +79,7 @@ exports.protect = (req,res, next)=>{
       }
       // console.log(decoded.data)
       req.user = decoded.data
-      console.log(req.user)
+      // console.log(req.user)
      });
   next();
 }catch(e){
@@ -131,3 +131,14 @@ exports.changePassword= async(req, res)=>{
   }
   }
   
+
+  exports.getOneUser = async (req,res)=>{
+   try{
+    const getuser = await User.findOne({ email: req.user.email })
+  res.status(200).json({message: "single user", data:getuser})
+  
+   }catch(e){
+    console.log(e.message)
+   }
+    
+  }

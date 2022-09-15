@@ -12,7 +12,7 @@ exports.create = async (req, res) => {
     req.body.User = req.user.id
     // console.log(req.user)
      await Book.create(req.body);
-    console.log(req.body);
+    // console.log(req.body);
     res.status(200).json({ message: "created"});
 
   } catch (e) {

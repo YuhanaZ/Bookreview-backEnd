@@ -5,7 +5,7 @@ const cors = require("cors")
 
 const userRoutes = require("./Routes/userRoutes");
 const BookRoutes = require("./Routes/bookRoutes");
-// const commentRoutes = require("./Routes/commentRoutes");
+const commentRoutes = require("./Routes/commentRountes");
 
 dotenv.config({ path: "./.env" }); 
 require("./server"); 
@@ -16,7 +16,7 @@ app.use(cors());
 
 app.use("/user", userRoutes);
 app.use("/book", BookRoutes);
-// app.use("/comment", commentRoutes);
+app.use("/comment", commentRoutes);
 
 
 
